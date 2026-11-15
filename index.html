@@ -155,7 +155,8 @@ section.alt{background:var(--paper-2);border-block:2px solid var(--ink)}
 .log .flag{display:inline-block;margin-top:6px;color:var(--green-bright);font-weight:700;font-size:.75rem;letter-spacing:.05em}
 .caption{font-size:.8rem;color:var(--muted);margin-top:var(--s3);text-align:center}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--grid-gap);margin-top:var(--s5)}
-.card .tui-body{padding:var(--card-pad);display:flex;flex-direction:column;gap:var(--s3);height:100%}
+.card{display:flex;flex-direction:column}
+.card .tui-body{padding:var(--card-pad);display:flex;flex-direction:column;gap:var(--s3);flex:1}
 .card h3{font-size:1.15rem}
 .card p{color:var(--ink-2);font-size:.94rem}
 .card .outcome{margin-top:auto;padding-top:var(--s4);border-top:1px dashed var(--line-soft);font-size:.9rem}
