@@ -162,6 +162,16 @@ section.alt{background:var(--paper-2);border-block:2px solid var(--ink)}
 .card .outcome b{color:var(--green);display:block}
 
 /* projects */
+.idx-row{display:grid;grid-template-columns:minmax(180px,280px) 1fr auto;gap:var(--s2) var(--s5);align-items:baseline;padding:13px 24px}
+.idx-row + .idx-row{border-top:1px dashed var(--line-soft)}
+.idx-name{font-weight:700;text-decoration:none;color:var(--ink);word-break:break-all}
+.idx-name::before{content:"./";color:var(--green)}
+.idx-name:hover{color:var(--green);text-decoration:underline;text-underline-offset:4px}
+.idx-desc{color:var(--ink-2);font-size:.9rem}
+.idx-lang{font-size:.8rem;color:var(--muted);white-space:nowrap}
+@media(max-width:760px){.idx-row{grid-template-columns:1fr}.idx-lang{display:none}}
+.proj-num{color:var(--green);font-weight:800}
+
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--grid-gap)}
 .proj{display:flex;flex-direction:column}
 .proj-body{padding:20px 24px;display:flex;flex-direction:column;gap:var(--s3);flex:1}
@@ -398,97 +408,64 @@ result: build is green. ship it.</div>
   <div class="wrap">
     <div class="sec-head reveal">
       <h2 class="sec-cmd">ls ~/projects</h2>
-      <p class="sec-sub">every public project I ship lands here. this list is synced daily from github.com/PunithNT.</p>
+      <p class="sec-sub">a curated shelf, not a repo dump. six featured builds, then an index. new repos land in the index on their own; the featured shelf only changes by hand.</p>
       <hr class="rule">
     </div>
     <div class="proj-grid">
-      <!-- PROJECTS:START - newest first. The daily GitHub sync inserts new project cards directly below this line, following the same card template. -->
       <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/ab-test-analyzer</span><span class="badge pass">[repo]</span></div>
+        <div class="tui-head"><span class="path">projects/url-shortener-api</span><span class="proj-num">[01]</span></div>
         <div class="proj-body">
-          <p>Streamlit A/B test analyzer: significance tests, confidence intervals, power and sample size calculations.</p>
-          <p class="proj-meta"><span>python · streamlit</span><a href="https://github.com/PunithNT/ab-test-analyzer" target="_blank" rel="noopener">github ↗</a></p>
+          <p>URL shortener API built with FastAPI, a pytest test suite, Docker, and GitHub Actions CI/CD. The closest thing here to my day job: an API, tests around it, and a pipeline that enforces them.</p>
+          <p class="proj-meta"><span>python · fastapi · pytest · ci/cd</span><a href="https://github.com/PunithNT/url-shortener-api" target="_blank" rel="noopener">github ↗</a></p>
         </div>
       </article>
       <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/churn-prediction</span><span class="badge pass">[repo]</span></div>
+        <div class="tui-head"><span class="path">projects/rate-limiter-library</span><span class="proj-num">[02]</span></div>
         <div class="proj-body">
-          <p>Customer churn prediction with scikit-learn pipelines, metrics beyond accuracy, and SHAP explanations.</p>
-          <p class="proj-meta"><span>python · scikit-learn</span><a href="https://github.com/PunithNT/churn-prediction" target="_blank" rel="noopener">github ↗</a></p>
+          <p>Thread-safe rate limiter library: token bucket and sliding window algorithms, proven with concurrency tests that hammer it from 50 threads.</p>
+          <p class="proj-meta"><span>python · concurrency · testing</span><a href="https://github.com/PunithNT/rate-limiter-library" target="_blank" rel="noopener">github ↗</a></p>
         </div>
       </article>
       <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/time-series-forecasting</span><span class="badge pass">[repo]</span></div>
+        <div class="tui-head"><span class="path">projects/model-api-fastapi</span><span class="proj-num">[03]</span></div>
         <div class="proj-body">
-          <p>Forecasting comparison: naive, seasonal naive, ARIMA and Prophet, scored with MAE, RMSE and MAPE, with a written verdict on which wins and why.</p>
-          <p class="proj-meta"><span>python · arima · prophet</span><a href="https://github.com/PunithNT/time-series-forecasting" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/sql-analytics-postgres</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>SQL analytics on NYC 311 style data in Postgres: 10 business questions answered with CTEs and window functions.</p>
-          <p class="proj-meta"><span>sql · postgresql</span><a href="https://github.com/PunithNT/sql-analytics-postgres" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/model-api-fastapi</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>House price model served as a FastAPI API with Pydantic validation, a full test suite, and Docker.</p>
+          <p>A house price model served as a FastAPI API with Pydantic validation, a full test suite, and Docker. ML behind an API contract, tested like one.</p>
           <p class="proj-meta"><span>python · fastapi · docker</span><a href="https://github.com/PunithNT/model-api-fastapi" target="_blank" rel="noopener">github ↗</a></p>
         </div>
       </article>
       <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/rag-app-evaluation</span><span class="badge pass">[repo]</span></div>
+        <div class="tui-head"><span class="path">projects/ab-test-analyzer</span><span class="proj-num">[04]</span></div>
         <div class="proj-body">
-          <p>Offline RAG question answering with TF-IDF retrieval, evaluated on a 25-question gold set for hit rate and answer accuracy.</p>
+          <p>Streamlit A/B test analyzer: significance tests, confidence intervals, power and sample size calculations, so experiment results get read correctly.</p>
+          <p class="proj-meta"><span>python · streamlit · statistics</span><a href="https://github.com/PunithNT/ab-test-analyzer" target="_blank" rel="noopener">github ↗</a></p>
+        </div>
+      </article>
+      <article class="tui-box proj reveal">
+        <div class="tui-head"><span class="path">projects/rag-app-evaluation</span><span class="proj-num">[05]</span></div>
+        <div class="proj-body">
+          <p>Offline RAG question answering with TF-IDF retrieval, evaluated honestly on a 25-question gold set: hit rate and answer accuracy, reported either way.</p>
           <p class="proj-meta"><span>python · rag · nlp</span><a href="https://github.com/PunithNT/rag-app-evaluation" target="_blank" rel="noopener">github ↗</a></p>
         </div>
       </article>
       <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/movielens-recommender</span><span class="badge pass">[repo]</span></div>
+        <div class="tui-head"><span class="path">projects/churn-prediction</span><span class="proj-num">[06]</span></div>
         <div class="proj-body">
-          <p>MovieLens recommender with item-based collaborative filtering, evaluated with precision@k against a popularity baseline.</p>
-          <p class="proj-meta"><span>python · recommender</span><a href="https://github.com/PunithNT/movielens-recommender" target="_blank" rel="noopener">github ↗</a></p>
+          <p>Customer churn prediction with scikit-learn pipelines, metrics beyond accuracy (ROC-AUC, PR-AUC), and SHAP explanations for every score.</p>
+          <p class="proj-meta"><span>python · scikit-learn · shap</span><a href="https://github.com/PunithNT/churn-prediction" target="_blank" rel="noopener">github ↗</a></p>
         </div>
       </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/url-shortener-api</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>URL shortener API built with FastAPI, pytest tests, Docker, and GitHub Actions CI/CD.</p>
-          <p class="proj-meta"><span>python · fastapi · ci/cd</span><a href="https://github.com/PunithNT/url-shortener-api" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/rate-limiter-library</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>Thread-safe rate limiter library: token bucket and sliding window algorithms, with concurrency tests.</p>
-          <p class="proj-meta"><span>python · concurrency</span><a href="https://github.com/PunithNT/rate-limiter-library" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/job-ai-assistant</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>An AI assistant for job search tasks. See the repo README for details.</p>
-          <p class="proj-meta"><span>python</span><a href="https://github.com/PunithNT/job-ai-assistant" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/Sunspot_Time_Series_Forecasting_using_Prophet</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>Time series forecasting of sunspot data with Facebook Prophet.</p>
-          <p class="proj-meta"><span>jupyter · prophet</span><a href="https://github.com/PunithNT/Sunspot_Time_Series_Forecasting_using_Prophet" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <article class="tui-box proj reveal">
-        <div class="tui-head"><span class="path">projects/Customer_Churn_Analysis_and_Prediction</span><span class="badge pass">[repo]</span></div>
-        <div class="proj-body">
-          <p>An end-to-end pipeline for analyzing and predicting customer churn.</p>
-          <p class="proj-meta"><span>python · machine learning</span><a href="https://github.com/PunithNT/Customer_Churn_Analysis_and_Prediction" target="_blank" rel="noopener">github ↗</a></p>
-        </div>
-      </article>
-      <!-- PROJECTS:END -->
     </div>
+    <div class="tui-box reveal" style="margin-top:var(--s5)">
+      <div class="tui-head"><span class="path">projects/index</span><span class="badge pass">[auto-synced daily]</span></div>
+      <div>
+        <!-- INDEX:START - the daily GitHub sync inserts new project rows directly below this line, following the same row template. -->
+        <div class="idx-row"><a class="idx-name" href="https://github.com/PunithNT/time-series-forecasting" target="_blank" rel="noopener">time-series-forecasting</a><span class="idx-desc">Forecasting comparison: naive vs seasonal naive vs ARIMA vs Prophet, with a written verdict on which wins and why.</span><span class="idx-lang">python</span></div>
+        <div class="idx-row"><a class="idx-name" href="https://github.com/PunithNT/sql-analytics-postgres" target="_blank" rel="noopener">sql-analytics-postgres</a><span class="idx-desc">SQL analytics on NYC 311 style data: 10 business questions with CTEs and window functions.</span><span class="idx-lang">sql</span></div>
+        <div class="idx-row"><a class="idx-name" href="https://github.com/PunithNT/movielens-recommender" target="_blank" rel="noopener">movielens-recommender</a><span class="idx-desc">MovieLens recommender, item-based collaborative filtering, precision@k vs a popularity baseline.</span><span class="idx-lang">python</span></div>
+        <!-- INDEX:END -->
+      </div>
+    </div>
+    <p class="caption" style="text-align:left;margin-top:var(--s4)">everything else, coursework included, lives at <a href="https://github.com/PunithNT" target="_blank" rel="noopener" style="color:var(--green);font-weight:700">github.com/PunithNT ↗</a></p>
   </div>
 </section>
 
