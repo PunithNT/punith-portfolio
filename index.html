@@ -127,8 +127,9 @@ section.alt{background:var(--paper-2);border-block:2px solid var(--ink)}
 .js .reveal.in{opacity:1;transform:none}
 /* work boxes */
 .tui-box{background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 rgba(20,19,16,.9)}
-.tui-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:12px 16px;border-bottom:2px solid var(--ink);background:var(--paper-2);font-size:.88rem;font-weight:700;flex-wrap:wrap}
-.tui-head .path{color:var(--ink-2)}
+.tui-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:12px 16px;border-bottom:2px solid var(--ink);background:var(--paper-2);font-size:.88rem;font-weight:700;flex-wrap:nowrap}
+.tui-head .path{color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tui-head .badge,.tui-head .proj-num{flex:none;white-space:nowrap}
 .tui-head .path::before{content:"~/";color:var(--green)}
 .badge{font-size:.75rem;font-weight:700;letter-spacing:.06em;padding:4px 9px;border:1.5px solid var(--ink)}
 .badge.pass{color:var(--green);border-color:var(--green)}
@@ -174,7 +175,7 @@ section.alt{background:var(--paper-2);border-block:2px solid var(--ink)}
 .proj-num{color:var(--green);font-weight:800}
 
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--grid-gap)}
-.proj{display:flex;flex-direction:column}
+.proj{display:flex;flex-direction:column;height:100%}
 .proj-body{padding:20px 24px;display:flex;flex-direction:column;gap:var(--s3);flex:1}
 .proj-body > p{color:var(--ink-2);font-size:.94rem}
 .proj-meta{margin-top:auto;padding-top:var(--s3);border-top:1px dashed var(--line-soft);display:flex;justify-content:space-between;gap:var(--s3);font-size:.85rem;color:var(--muted)}
